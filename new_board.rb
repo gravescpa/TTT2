@@ -26,8 +26,16 @@ class Board
 
 	def valid_space?(position)
 		position = (position - 1)
-		position >= 0 && position <= 8 && grid[position] == ""
+		position >= 0 && position <= number_spaces && grid[position] == ""
 	end
+
+	def valid_input?(position)
+        if position.to_i >= 1 && position.to_i <= @number_spaces && position =~ (/^(\d)+$/) 
+            true          
+        else
+            false
+        end
+    end
 
 	def full_board?
 		grid.count("") == 0

@@ -1,9 +1,6 @@
 require "minitest/autorun"
 require_relative 'new_board.rb'
 
-
-
-
  class TestTicTacToeBoard < Minitest::Test
 
      def test_create_new_3x3_board
@@ -21,18 +18,37 @@ require_relative 'new_board.rb'
          assert_equal(729, board.grid.count)
      end
 
-#     def test_for_valid_input
-#         board = Board.new()
-#         assert_equal(false, board.valid_input?("11"))
-#         assert_equal(true, board.valid_input?("5"))
-#     end
+    def test_for_valid_input_3x3_board
+        board = Board.new(3)
+        assert_equal(false, board.valid_input?("11"))
+        assert_equal(true, board.valid_input?("5"))
+    end
 
-#     def test_for_occupied_space
-#         board = Board.new()
-#         board.grid = ["X","O","","","","","","",""]
-#         assert_equal(false, board.valid_space?(1))
-#         assert_equal(true, board.valid_space?(2))
-#     end
+    def test_for_valid_input_4X4_board
+        board = Board.new(4)
+        assert_equal(false, board.valid_input?("20"))
+        assert_equal(true, board.valid_input?("5"))
+    end
+
+    def test_for_valid_input_9x9_board
+        board = Board.new(9)
+        assert_equal(false, board.valid_input?("100"))
+        assert_equal(true, board.valid_input?("5"))
+    end
+
+    def test_for_occupied_space_3X3_board
+        board = Board.new(3)
+        board.grid = ["X","O","","","","","","",""]
+        assert_equal(false, board.valid_space?(1))
+        assert_equal(true, board.valid_space?(4))
+    end
+
+    def test_for_occupied_space_4x4_board
+        board = Board.new(4)
+        board.grid = ["X","","","","","O","","","","","X","","","","",""]
+        assert_equal(false, board.valid_space?(0))
+        assert_equal(true, board.valid_space?(4))
+    end
 
 #     def test_for_update_board_turn_2
 #         board = Board.new()
@@ -57,11 +73,6 @@ require_relative 'new_board.rb'
         board = Board.new(4)
         assert_equal(Array.new(16, ""), board.grid)
     end
-
-#     def test_integer_only
-#         board = Board.new()
-#         assert_equal(false, board.valid_input?("X"))
-#     end
 
 #     def test_for_full_board
 #         board = Board.new()
