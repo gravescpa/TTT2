@@ -11,16 +11,16 @@ class TestRandomAI < Minitest::Test
 
     def test_for_valid_space
         player = RandomAI.new("O")
-        assert_equal(true, player.valid_space?(["","O","X","O","O","O","O","O", "O"], 0))
+        assert_equal(true, player.valid_space?(["","O","X","O","O","O","O","O","O"], 0))
         end
     
-    def test_for_invalid_space
-        player = RandomAI.new("O")
-        assert_equal(false, player.valid_space?(["O","X","X","O","O","O","O","O", "O"], 0))
-    end
+    # def test_for_invalid_space
+    #     player = RandomAI.new("O")
+    #     assert_equal(false, player.valid_space?(["O","X","X","O","O","O","O","O","O"], 1))
+    # end
 
     def test_get_move
         player = RandomAI.new("O")
-        assert_equal(1, player.get_move(["O","","X","O","O","O","O","O", "O"]))
+        assert_equal(1, player.get_move(["O","","X","O","O","O","O","O","O"]))
     end
 end

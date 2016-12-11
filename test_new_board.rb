@@ -50,19 +50,26 @@ require_relative 'new_board.rb'
         assert_equal(true, board.valid_space?(4))
     end
 
-#     def test_for_update_board_turn_2
-#         board = Board.new()
-#         board.grid = ["X","","","","","","","",""]
-#         board.update(1, "O")
-#         assert_equal(["X","O","","","","","","",""], board.grid)
-#     end
+    def test_for_occupied_space_5x5_board
+        board = Board.new(5)
+        board.grid = ["X","","","","","O","","","","","X","","","","","","","","","O","","","","","X"]
+        assert_equal(false, board.valid_space?(0))
+        assert_equal(true, board.valid_space?(24))
+    end
 
-#     def test_for_update_board_turn_1
-#         board = Board.new()
-#         board.grid = ["","","","","","","","",""]
-#         board.update(0, "X")
-#         assert_equal(["X","","","","","","","",""], board.grid)
-#     end
+    def test_for_update_board_turn_2_3x3_board
+        board = Board.new(3)
+        board.grid = ["X","","","","","","","",""]
+        board.update(1, "O")
+        assert_equal(["X","O","","","","","","",""], board.grid)
+    end
+
+    def test_for_update_board_turn_1_3x3_board
+        board = Board.new(3)
+        board.grid = ["","","","","","","","",""]
+        board.update(0, "X")
+        assert_equal(["X","","","","","","","",""], board.grid)
+    end
 
     def test_empty_board_9_grid
         board = Board.new(9)
@@ -74,17 +81,17 @@ require_relative 'new_board.rb'
         assert_equal(Array.new(16, ""), board.grid)
     end
 
-#     def test_for_full_board
-#         board = Board.new()
-#         board.grid = ["X","O","O","X","O","X","O","X","O"]
-#         assert_equal(true, board.full_board?)
-#     end
+    def test_for_full_board_3x3_board
+        board = Board.new(3)
+        board.grid = ["X","O","O","X","O","X","O","X","O"]
+        assert_equal(true, board.full_board?)
+    end
 
-#     def test_partial_board_returns_false
-#         board = Board.new()
-#         board.grid = ["X","O","","","","","","",""]
-#         assert_equal(false, board.full_board?)
-#     end
+    def test_partial_3x3_board_returns_false
+        board = Board.new(3)
+        board.grid = ["X","O","","","","","","",""]
+        assert_equal(false, board.full_board?)
+    end
 
 #     def test_for_winner_X
 #         board = Board.new()

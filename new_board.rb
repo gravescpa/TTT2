@@ -41,23 +41,23 @@ class Board
 		grid.count("") == 0
 	end
 
-	def winner?(marker)
-		result = false
-		winning_combo = [[grid[0],grid[1],grid[2]],
-                         [grid[3],grid[4],grid[5]],
-                         [grid[6],grid[7],grid[8]],
-                         [grid[0],grid[3],grid[6]],
-                         [grid[1],grid[4],grid[7]],
-                         [grid[2],grid[5],grid[8]],
-                         [grid[0],grid[4],grid[8]],
-                         [grid[2],grid[4],grid[6]]]
+	# def winner?(marker)
+	# 	result = false
+	# 	winning_combo = [[grid[0],grid[1],grid[2]],
+    #                      [grid[3],grid[4],grid[5]],
+    #                      [grid[6],grid[7],grid[8]],
+    #                      [grid[0],grid[3],grid[6]],
+    #                      [grid[1],grid[4],grid[7]],
+    #                      [grid[2],grid[5],grid[8]],
+    #                      [grid[0],grid[4],grid[8]],
+    #                      [grid[2],grid[4],grid[6]]]
 
-        winning_combo.each do |winner|
-        	if winner.count(marker) == 3
-        		result = true
-        	end
-        end
-        result
-	end
+    #     winning_combo.each do |winner|
+    #     	if winner.count(marker) == 3
+    #     		result = true
+    #     	end
+    #     end
+    #     result
+	# end
 
 end
